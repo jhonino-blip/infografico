@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infográfico Interativo Citado: EaD, Híbrido e Cultura Híbrida</title>
+    <style>
+        /* ESTILOS VISUAIS (MANTIDOS DO CÓDIGO ANTERIOR) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f8ff;
+            color: #2c3e50;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1abc9c;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        h2 {
+            color: #7f8c8d;
+            text-align: center;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .card {
+            background-color: #ecf0f1;
+            border: 2px solid #bdc3c7;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .card h3 {
+            color: #2980b9;
+            text-align: center;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        /* BOTÕES DE INTERAÇÃO */
+        .interactive-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: #1abc9c;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .interactive-button:hover {
+            background-color: #16a085;
+        }
+        .conclusao {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #f39c12;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        /* ESTILOS PARA O MODAL (SIMULAÇÃO DO POP-UP) */
+        .modal {
+            display: none; /* Escondido por padrão */
+            position: fixed; 
+            z-index: 10; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.4); /* Fundo escurecido */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% do topo e centralizado */
+            padding: 25px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .citation {
+            font-size: 0.8em;
+            color: #888;
+            display: block;
+            margin-top: 10px;
+            border-top: 1px dashed #eee;
+            padding-top: 5px;
+        }
+        /* Definição de negrito para o conteúdo */
+        .modal-content strong {
+            font-weight: bold;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 800px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>O Trio da Educação Digital</h1>
+    <h2>Distinguindo EaD, Ensino Híbrido e Educação Híbrida</h2>
+    
+    <div class="grid-container">
+
+        <div class="card">
+            <h3>1. EaD (Educação a Distância)</h3>
+            <button class="interactive-button" onclick="openModal('modal-ead-conceito')">💡 Conceituação Principal</button>
+            <button class="interactive-button" onclick="openModal('modal-ead-uso')">💬 Exemplo e Uso na Ed. Básica</button>
+        </div>
+
+        <div class="card">
+            <h3>2. Ensino Híbrido (Blended Learning)</h3>
+            <button class="interactive-button" onclick="openModal('modal-hibrido-conceito')">💡 Conceituação Principal</button>
+            <button class="interactive-button" onclick="openModal('modal-hibrido-uso')">💬 Exemplo e Uso na Ed. Básica</button>
+        </div>
+
+        <div class="card">
+            <h3>3. Educação Híbrida (Cultura)</h3>
+            <button class="interactive-button" onclick="openModal('modal-cultura-conceito')">💡 Conceituação Principal</button>
+            <button class="interactive-button" onclick="openModal('modal-cultura-uso')">💬 Exemplo e Uso na Ed. Básica</button>
+        </div>
+
+    </div>
+
+    <div class="conclusao">
+        Resposta Final: Sim, é possível distingui-las! A <strong>EaD</strong> é uma <strong>Modalidade</strong>, o <strong>Ensino Híbrido</strong> é um <strong>Método</strong> e a <strong>Educação Híbrida</strong> é uma <strong>Cultura/Tendência Histórica</strong> mais ampla.
+    </div>
+
+</div>
+
+<div id="modal-ead-conceito" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('modal-ead-conceito')">&times;</span>
+        <h4>EaD: Conceituação Principal</h4>
+       <p>A <strong>EaD</strong> é uma <strong>modalidade de ensino</strong> na qual a mediação didático-pedagógica dos processos de ensino e aprendizagem ocorre com a utilização de meios e tecnologias de informação e comunicação. Sua característica basal é a <strong>separação no tempo e/ou no espaço</strong> entre os sujeitos, além do uso de tecnologias que viabilizam a interação pedagógica.</p>
+        <span class="citation">Referência: Decreto 9.057/2017 , Veloso e Mill (2022a).</span>
+    </div>
+</div>
+
+<div id="modal-ead-uso" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('modal-ead-uso')">&times;</span>
+        <h4>EaD: Exemplo e Uso na Ed. Básica</h4>
+        <p><strong>Conteúdo:</strong> É uma modalidade específica, com concepção didático-pedagógica própria, que envolve conteúdos, atividades, avaliação, funcionamento e todo um design projetado e adequado a tal modalidade Os conteúdos didáticos digitais são produzidos de forma padrão e as aulas são gravadas com antecedência.</p>
+        <p><strong>Relação com a Ed. Básica:</strong> Embora seja uma modalidade distinta, a EaD se manifesta em ofertas de <strong>Educação de Jovens e Adultos (EJA) a distância</strong> ou no uso de materiais didáticos digitais padronizados, podendo contar com <strong>polos de apoio presencial</strong>.</p>
+        <span class="citation">Referência: Material FAMED/UFVJM, Veloso et al. (2023) .</span>
+    </div>
+</div>
+
+<div id="modal-hibrido-conceito" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('modal-hibrido-conceito')">&times;</span>
+        <h4>Ensino Híbrido: Conceituação Principal</h4>
+        <p>O <strong>Ensino Híbrido</strong> (ou <em>blended learning</em>) é uma <strong>mistura</strong> que possibilita a combinação entre o ensino presencial e as propostas de ensino online. É um programa de educação formal no qual um aluno aprende, pelo menos em parte, por meio do ensino online, com algum elemento de controle do estudante sobre o tempo, lugar, modo e/ou ritmo de estudo, e pelo menos em parte em uma localidade física supervisionada.</p>
+        <span class="citation">Referência: Material FAMED/UFVJM , Christensen, Horn e Staker (2013).</span>
+    </div>
+</div>
+
+<div id="modal-hibrido-uso" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('modal-hibrido-uso')">&times;</span>
+        <h4>Ensino Híbrido: Exemplo e Uso na Ed. Básica</h4>
+        <p><strong>Exemplos de Modelos:</strong> As propostas de ensino híbrido podem ser organizadas de acordo com diferentes modelos, como <strong>Rotação por Estação, Laboratório Rotacional, Sala de Aula Invertida, Flex, À la carte e Virtual Enriquecido</strong>.</p>
+        <p><strong>Na Ed. Básica:</strong> A aplicação de modelos de rotação, como a Sala de Aula Invertida, é uma estratégia de Ensino Híbrido, mesclando atividades presenciais (aulas, práticas laboratoriais) com aulas e encontros online (videoconferência) e atividades assíncronas (leitura de materiais textuais).</p>
+        <span class="citation">Referência: Material FAMED/UFVJM.</span>
+    </div>
+</div>
+
+<div id="modal-cultura-conceito" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('modal-cultura-conceito')">&times;</span>
+        <h4>Educação Híbrida: Conceituação Principal</h4>
+        <p>O conceito de <strong>Educação Híbrida</strong> é mais amplo, pois extrapola a perspectiva de conjuminar apenas duas modalidades. É um processo de ensino-aprendizagem colaborativo e integrado, aliando-se às Tecnologias Digitais de Informação e Comunicação (TDIC). Representa a superação das dicotomias entre EaD e educação presencial e não é simplesmente uma nova modalidade, mas uma nova realidade histórico-social.</p>
+        <span class="citation">Referência: Soares e Cesário (2019), Veloso et al. (2023) .</span>
+    </div>
+</div>
+
+<div id="modal-cultura-uso" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('modal-cultura-uso')">&times;</span>
+        <h4>Educação Híbrida: Exemplo e Uso na Ed. Básica</h4>
+       <p><strong>Cultura e Paradigma:</strong> A educação híbrida é uma tendência histórica que se acentua devido à presença de uma nova cultura permeada por TDIC, não se reduzindo ao que é planejado institucionalmente. É o efeito dos embates dialéticos entre EaD e educação presencial, que cria cenários mais hibridizados.</p>
+        <p><strong>Na Ed.Básica:</strong> Manifesta-se na diluição das fronteiras, onde os alunos numa sala de aula física se mantêm conectados à internet em seus dispositivos móveis e constituir-se-ão enquanto sujeitos numa reciprocidade entre o online e o off-line que não apenas se complementam, mas se misturam de tal sorte que a separação se torna quase que impossível.</p>
+        <span class="citation">Referência: Moran (2015), Veloso et al. (2023).</span>
+    </div>
+</div>
+
+<script>
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+
+    // Fecha o modal se o usuário clicar fora dele
+    window.onclick = function(event) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
